@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>IEXCloudClient.NetCore</RootNamespace>
+    <PackageId>IEXCloudClient.NetCore</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Jonas Brekle</Authors>
+    <Company>Jonas Brekle</Company>
+    <PackageDescription>A client for IEXCloud written in .NET Core</PackageDescription>
+    <Copyright></Copyright>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReleaseNotes>initial version</PackageReleaseNotes>
+    <IncludeSource>true</IncludeSource>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/jbrekle/IEXCloudClient.NetCore</RepositoryUrl>
+    <PackageTags>IEXCloud;stock;trading</PackageTags>  
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="3v.EvtSource" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+</Project>
