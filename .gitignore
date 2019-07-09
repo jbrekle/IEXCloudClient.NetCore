@@ -6,3 +6,5 @@ _ReSharper.*
 bin
 obj
 packages
+/IEXCloud-client-tests/node_modules
+/IEXCloud-client-tests/package-lock.json

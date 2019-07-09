@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace IEXCloudClient.NetCore
 {
-    public class Throtttler
+    public class Throttler
     {
         private const double REQUEST_PER_MINUTE_LIMIT = 1000;
         private const double MS_BETWEEN_REQUEST = 60 / REQUEST_PER_MINUTE_LIMIT * 1000;
