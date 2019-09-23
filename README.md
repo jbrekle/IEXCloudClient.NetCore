@@ -5,7 +5,7 @@ Retrieves stock data from IEX's REST and event-stream webservice, parses the JSO
 
 ## Features
 
-* comprehesive list of 26 supported operations
+* comprehensive list of 26 supported operations
 * SSE events supported
 * signing of requests 
 * ready for integration with (ASP) .NET Core application
@@ -13,7 +13,7 @@ Retrieves stock data from IEX's REST and event-stream webservice, parses the JSO
 * everything wrapped in interfaces for easier testing/mocking in consuming projects
 
 ## current limitations
-* only `trade` events SSE streaming implemented yet. ther event types require a paid license, which I don't have yet. So I could not test it. If you can help out, it should be easy to extend: copy and adapt `TradeEventSource.cs`
+* only `trade` events SSE streaming implemented yet. Other event types require a paid license, which I don't have. So I could not test it. If you can help out, it should be easy to extend (see `TradeEventSource.cs`).
 * signing of requests implemented as a prototype but might not be working yet. Hashes are  calculated correcly (i have a green unit test that compares with the reference iplementation from https://iexcloud.io/docs/api/#getting-the-secret-for-a-signed-token) but somehow I seem to miss a detail or its limited to paid licenses, server responds with `400 Bad request`.
 
 ## Getting Started
