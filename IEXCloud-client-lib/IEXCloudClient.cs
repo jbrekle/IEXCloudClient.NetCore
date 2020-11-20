@@ -383,6 +383,5 @@ namespace IEXCloudClient.NetCore
         {
 			return GetRemoteObjects<ISymbol, SymbolImpl>($"{_url}/ref-data/symbols?token={Options.PublicToken}");
 		}
-		
     }
 }

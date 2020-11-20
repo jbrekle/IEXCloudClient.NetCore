@@ -19,25 +19,30 @@ namespace IEXCloudClient.NetCore
             IIEXCloudClient client = serviceProvider.GetRequiredService<IIEXCloudClient>();
 
             await TestQuote(client);
-            await TestCompany(client);
+            //await TestCompany(client);
             //await TestApiStatus(client);
-            //await TestAccountMetadata(client);
-            //await client.GetSystemEvents();
+            //await TestAccountMetadata(client); // not allowed?!
+            //await TestSystemEvents(client);
             //await TestListQuotes(client);
             //await TestHistoricalPrices(client);
-            //await TestBalanceSheets(client); //expensive, 3000
+            //await TestBalanceSheets(client); //PaymentRequired
             //await TestDividends(client);
-            //await TestDelayedQuote(client);
-            //await TestEffectiveSpreads(client);
-            //await TestOHLC(client);
+            //await TestDelayedQuote(client); //PaymentRequired
+            //await TestOHLC(client); //PaymentRequired
             //await TestEarnings(client); // expensive 1000
-            //await TestMarketVolumeUS(client);
+            //await TestMarketVolumeUS(client); //PaymentRequired
             //await TestLogo(client);
-            //await TestPriceTarget(client);
+            //await TestPriceTarget(client); //PaymentRequired
             //await TestNews(client);
-            //await TestSectorPerformance(client);
-            await TestSymbols(client);
-            TestSSE(client);
+            //await TestSectorPerformance(client); //PaymentRequired
+            //await TestSymbols(client);
+            //TestSSE(client);
+        }
+
+        private static async Task TestSystemEvents(IIEXCloudClient client)
+        {
+            var events = await client.GetSystemEvents();
+            Console.WriteLine(events.Type);
         }
 
         private static void TestSSE(IIEXCloudClient client)
@@ -59,11 +64,10 @@ namespace IEXCloudClient.NetCore
             Console.WriteLine(mv);
         }
 
-
         private async static Task TestSymbols(IIEXCloudClient client)
         {
             var symbols = await client.GetSymbols();
-            foreach(var symbol in symbols.Take(5)){ //limited to 5
+            foreach(var symbol in symbols.Take(10)){
                 Console.WriteLine();
                 Console.WriteLine(symbol);
             }
@@ -166,19 +170,15 @@ namespace IEXCloudClient.NetCore
         private static async Task TestCompany(IIEXCloudClient client)
         {
             var companyAapl = await client.GetCompany(Symbol);
-            //Console.WriteLine("aapl last dividend: "+companyAapl.Dividends.OrderBy(x=>x.PaymentDate).Last().Amount);
-            Console.WriteLine("aapl website: " + companyAapl.Website);
-            //Console.WriteLine("aapl CurrentLongTermDebt: "+companyAapl.BalanceSheets.OrderBy(x=>x.ReportDate).Last().CurrentLongTermDebt);
+            //Console.WriteLine($"{Symbol} last dividend: "+companyAapl.Dividends.OrderBy(x=>x.PaymentDate).Last().Amount);
+            Console.WriteLine($"{Symbol} website: " + companyAapl.Website);
+            //Console.WriteLine($"{Symbol} CurrentLongTermDebt: "+companyAapl.BalanceSheets.OrderBy(x=>x.ReportDate).Last().CurrentLongTermDebt);
         }
 
         private static async Task TestQuote(IIEXCloudClient client)
         {
-            var aapleQuote = await client.GetQuote(Symbol);
-            Console.WriteLine("aapl high: " + aapleQuote.High);
-            Console.WriteLine("aapl low: " + aapleQuote.Low);
-            Console.WriteLine("aapl close: " + aapleQuote.Close);
+            var quote = await client.GetQuote(Symbol);
+            Console.WriteLine($"{Symbol} LatestPrice: " + quote.LatestPrice);
         }
     }
-
-
 }

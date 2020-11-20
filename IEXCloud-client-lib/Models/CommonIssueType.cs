@@ -4,6 +4,9 @@ namespace IEXCloudClient.NetCore
 {
     public enum CommonIssueType
     {
+        [EnumMember(Value = "")]
+        ///one symbol has empty type
+        Undefined,
         [EnumMember(Value = "ad")]
         ADR,
 
