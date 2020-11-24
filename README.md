@@ -1,3 +1,5 @@
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/jbrekle/IEXCloudClient.NetCore/.NET%20Core/master) ![GitHub](https://img.shields.io/github/license/jbrekle/IEXCloudClient.NetCore) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/jbrekle/IEXCloudClient.NetCore) ![GitHub Release Date](https://img.shields.io/github/release-date/jbrekle/IEXCloudClient.NetCore)
+
 # IEXCloudClient.NetCore 
 
 A client for IEXCloud written in .NET Core.
